@@ -3,7 +3,7 @@ package com.khamid.ebookproject.login;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "userchala")
+@Table(name = "userla")
 public class LoginEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

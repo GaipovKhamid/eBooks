@@ -2,6 +2,10 @@ package com.khamid.ebookproject.login;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class LoginService {
@@ -21,19 +25,21 @@ public class LoginService {
         return loginDTO;
     }
 
-    public String login(LoginDTO loginDTO) {
-        LoginEntity entity = new LoginEntity();
+    public boolean isAuth(LoginDTO loginDTO) {
+        Optional<LoginEntity> loginEntity =
+                loginRepository.findByEmail(loginDTO.getEmail());
 
-        if (entity.getEmail() == null || entity.getEmail().equals(loginDTO.getEmail())) {
-            if (entity.getPassword() == null || entity.getPassword().equals(loginDTO.getPassword())) {
-                return "hello";
-            } else {
-                return "error";
+        if (loginEntity.isPresent()) {
+            if (StringUtils.hasText(loginEntity.get().getEmail()) &&
+                    loginEntity.get().getEmail().equals(loginDTO.getEmail())) {
+                if (StringUtils.hasText(loginEntity.get().getPassword())
+                        && loginEntity.get().getPassword().equals(loginDTO.getPassword())) {
+                    return true;
+                } else {
+                    return false;
+                }
             }
-        } else {
-            return "error";
         }
+        return false;
     }
-
-
 }
