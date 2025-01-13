@@ -1,6 +1,8 @@
 package com.khamid.ebookproject.login;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "userla")
@@ -10,9 +12,12 @@ public class LoginEntity {
     private int id;
 
     @Column
+    @Email(message = "Provide a valid email address")
     private String email;
 
+
     @Column
+    @Size(min = 8, message = "password must be at least 8 characters long")
     private String password;
 
 
