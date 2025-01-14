@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 @Controller
 public class LoginController {
 
-
     @Autowired
     private LoginService loginService;
+
+    @Autowired
+    private LoginRepository loginRepository;
 
     @GetMapping("/registration")
     public String userReg() {
@@ -20,7 +22,7 @@ public class LoginController {
     @PostMapping("/registration")
     public String regPost(@ModelAttribute LoginDTO dto) {
         loginService.registration(dto);
-        return "registrationPage";
+        return "redirect:/hello";
     }
 
     @GetMapping("/signin")

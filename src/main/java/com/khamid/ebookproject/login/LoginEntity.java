@@ -5,21 +5,27 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name = "userla")
+@Table(name = "userchala")
 public class LoginEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column
-    @Email(message = "Provide a valid email address")
     private String email;
 
-
     @Column
-    @Size(min = 8, message = "password must be at least 8 characters long")
     private String password;
 
+
+    @Override
+    public String toString() {
+        return "LoginEntity{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 
     public int getId() {
         return id;
