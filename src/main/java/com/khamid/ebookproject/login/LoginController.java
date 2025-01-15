@@ -11,9 +11,6 @@ public class LoginController {
     @Autowired
     private LoginService loginService;
 
-    @Autowired
-    private LoginRepository loginRepository;
-
     @GetMapping("/registration")
     public String userReg() {
         return "registrationPage";
@@ -33,13 +30,15 @@ public class LoginController {
     @PostMapping("/signin")
     public String signIn(@ModelAttribute LoginDTO loginDTO) {
         if (loginService.isAuth(loginDTO)) {
-            return "redirect:/hello";
+            return "hello";
         }
         return "signInPage";
     }
 
+
+
     @GetMapping("/hello")
-    public String hello(){
+    public String hello() {
         return "hello";
     }
 

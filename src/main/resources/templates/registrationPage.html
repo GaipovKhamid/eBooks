@@ -1,77 +1,68 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400;500&display=swap">
     <!-- Link to the external CSS file -->
-    <link rel="stylesheet" th:href="@{registerPage.css}" href="registerPage.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="registerPage.css">
 </head>
 <body>
-<!-- Main container for centering the login card on the screen -->
-<div class="container">
-    <!-- Login card containing both the image and the form -->
-    <div class="login-card">
-        <!-- Left side of the card containing the decorative image -->
-        <div class="card-left">
-            <div class="image-cover">
-                <img src="https://images.unsplash.com/photo-1724832228136-6ddd51037827?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                     alt="Decorative Furniture Image">
+<section class="vh-100">
+    <div class="container py-5 h-100">
+        <div class="row d-flex align-items-center justify-content-center h-100">
+            <div class="col-md-8 col-lg-7 col-xl-6">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+                     class="img-fluid" alt="Phone image">
+            </div>
+            <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+
+                <form action="registration" method="post">
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <input name="email" type="email" id="form1Example13" class="form-control form-control-lg" />
+                        <label class="form-label" for="form1Example13">Email address</label>
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                        <input name="password" type="password" id="form1Example23" class="form-control form-control-lg" />
+                        <label class="form-label" for="form1Example23">Password</label>
+                    </div>
+
+                    <div class="d-flex justify-content-around align-items-center mb-4">
+                        <!-- Checkbox -->
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+                            <label class="form-check-label" for="form1Example3"> Remember me </label>
+                        </div>
+                        <a href="#!">Forgot password?</a>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Sign up</button>
+
+                    <div class="divider d-flex align-items-center my-4">
+                        <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
+                    </div>
+
+                    <a data-mdb-ripple-init class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="#!"
+                       role="button">
+                        <i class="fab fa-facebook-f me-2"></i>Continue with Facebook
+                    </a>
+                    <a class="btn btn-primary btn-lg btn-block" style="background-color: #55acee" href="#!"
+                       role="button">
+                        <i class="fab fa-twitter me-2"></i>Continue with Twitter</a>
+
+                </form>
             </div>
         </div>
-        <!-- Right side of the card containing the login form -->
-        <div class="card-right">
-            <!-- Title of the login form -->
-            <h1 class="title">UzPDF</h1>
-            <!-- Subtitle welcoming the user -->
-            <h2 class="welcome">Welcome to UzPDF</h2>
-            <!-- Form for user input -->
-            <form action="registration" method="POST">
-                <!-- Input group for username or email -->
-                <div class="input-group">
-                    <label for="username">Email</label>
-                    <input type="text" id="username" name="username" required>
-                </div>
-                <!-- Input group for password -->
-                <div class="input-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <!-- Actions section containing the Sign In button and forgot password link -->
-                <div class="actions">
-                    <button type="submit" class="btn">Sign Up</button>
-                </div>
-                <!-- Divider text for alternative login options -->
-                <div class="or-divider">or</div>
-                <!-- Google Sign In button -->
-                <div class="google-signin">
-                    <button type="button" class="btn google-btn">
-                        <!-- SVG icon for Google -->
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="24px" height="24px"
-                             class="google-icon">
-                            <path fill="#4285F4"
-                                  d="M44.5,20H24v8.5h11.7c-1.1,3.2-3.6,5.7-6.7,6.9l6.7,5.2c3.9-3.6,6.3-8.8,6.3-14.6C44.7,24.9,44.6,22.4,44.5,20z"/>
-                            <path fill="#34A853"
-                                  d="M24,44c5.9,0,10.8-1.9,14.4-5.1l-6.7-5.2c-2,1.3-4.6,2-7.7,2c-5.9,0-10.8-4-12.6-9.4l-7.2,5.6C8.9,39.7,15.9,44,24,44z"/>
-                            <path fill="#FBBC05"
-                                  d="M11.4,26.3c-0.5-1.3-0.8-2.7-0.8-4.3s0.3-3,0.8-4.3l-7.2-5.6C2.3,15.6,1,19.1,1,22.8s1.3,7.2,3.2,10.7L11.4,26.3z"/>
-                            <path fill="#EA4335"
-                                  d="M24,9.5c3.2,0,6.1,1.1,8.4,3.2l6.3-6.3C34.8,2.9,29.9,1,24,1c-8.1,0-15.1,4.3-19.2,10.7l7.2,5.6C13.2,13.5,18.1,9.5,24,9.5z"/>
-                            <path fill="none" d="M0,0h48v48H0V0z"/>
-                        </svg>
-                        Sign in with Google
-                    </button>
-                </div>
-                <!-- Section for account creation -->
-                <div class="create-account">
-                    <p>Have an account in UzPDF? <a href="#">Sign In</a></p>
-                </div>
-            </form>
-        </div>
     </div>
-</div>
+</section>
 
-<!-- Image credit at the bottom of the page -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
