@@ -35,6 +35,11 @@ public class LoginController {
         return "signInPage";
     }
 
+    @GetMapping("/home")
+    public String home() {
+        return "startbootstrap-shop-homepage/dist/index";
+    }
+
 
 
     @GetMapping("/hello")
