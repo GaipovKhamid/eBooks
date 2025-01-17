@@ -37,7 +37,7 @@ public class LoginController {
 
     @GetMapping("/home")
     public String home() {
-        return "startbootstrap-shop-homepage/dist/index";
+        return "homePage";
     }
 
 
