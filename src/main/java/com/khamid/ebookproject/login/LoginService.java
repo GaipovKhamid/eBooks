@@ -25,15 +25,13 @@ public class LoginService {
         return loginDTO;
     }
 
+
     public boolean isAuth(LoginDTO loginDTO) {
-        Optional<LoginEntity> loginEntity =
-                loginRepository.findByEmail(loginDTO.getEmail());
+        Optional<LoginEntity> loginEntity = loginRepository.findByEmail(loginDTO.getEmail());
 
         if (loginEntity.isPresent()) {
-            if (StringUtils.hasText(loginEntity.get().getEmail()) &&
-                    loginEntity.get().getEmail().equals(loginDTO.getEmail())) {
-                if (StringUtils.hasText(loginEntity.get().getPassword())
-                        && loginEntity.get().getPassword().equals(loginDTO.getPassword())) {
+            if (StringUtils.hasText(loginEntity.get().getEmail()) && loginEntity.get().getEmail().equals(loginDTO.getEmail())) {
+                if (StringUtils.hasText(loginEntity.get().getPassword()) && loginEntity.get().getPassword().equals(loginDTO.getPassword())) {
                     return true;
                 } else {
                     return false;

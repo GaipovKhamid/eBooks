@@ -1,15 +1,21 @@
 package com.khamid.ebookproject.login;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.ModelAttribute;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class LoginController {
 
     @Autowired
     private LoginService loginService;
+    @Autowired
+    private LoginRepository loginRepository;
 
     @GetMapping("/registration")
     public String userReg() {
@@ -17,9 +23,9 @@ public class LoginController {
     }
 
     @PostMapping("/registration")
-    public String regPost(@ModelAttribute LoginDTO dto) {
-        loginService.registration(dto);
-        return "redirect:/hello";
+    public String regPost(LoginDTO loginDTO) {
+        loginService.registration(loginDTO);
+        return "hello";
     }
 
     @GetMapping("/signin")
@@ -39,7 +45,6 @@ public class LoginController {
     public String home() {
         return "homePage";
     }
-
 
 
     @GetMapping("/hello")
