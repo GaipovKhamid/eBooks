@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 public class LoginDTO {
-    private Integer id;
+    private Long id;
     private String email;
     private String password;
 
@@ -17,11 +17,11 @@ public class LoginDTO {
                 '}';
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -39,5 +39,14 @@ public class LoginDTO {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public LoginDTO(Long id, String email, String password) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
+    }
+
+    public LoginDTO() {
     }
 }

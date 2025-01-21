@@ -6,4 +6,6 @@ import java.util.Optional;
 
 public interface LoginRepository extends CrudRepository<LoginEntity, Integer> {
     Optional<LoginEntity> findByEmail(String email);
+
+    boolean existsByEmail(String username);
 }
